@@ -40,7 +40,7 @@ public class JmsMessageBrokerSupportTest {
         assertThat(receivedMessage).isEqualTo(MESSAGE_CONTENT);
     }
 
-    @Test(expected = JmsMessageBrokerSupport.NoMessageReceivedException.class)
+    @Test(expected = MyJMSException.NoMessageReceivedException.class)
     public void throwsExceptionWhenNoMessagesReceivedInTimeout() throws Exception {
         JmsMessageBrokerSupport.bindToBrokerAtUrl(REMOTE_BROKER_URL).retrieveASingleMessageFromTheDestination(TEST_QUEUE, 1);
     }
